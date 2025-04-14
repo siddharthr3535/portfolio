@@ -130,7 +130,7 @@ const Home: FC = () => {
                         <FiLinkedin size={20} />
                     </a>
                     <a
-                        href="https://drive.google.com/uc?export=download&id=18cmFxo2lwylQZvkAzLPDbTIn74q-lJe_"
+                        href="https://drive.google.com/uc?export=download&id=1O0wckIS39ke68kRrq_G7ScFDAg0kue47"
                         className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                         download="Sandeep_Enamandala_Resume.pdf"
                     >
