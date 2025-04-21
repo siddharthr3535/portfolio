@@ -16,32 +16,32 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "E-Commerce Website",
+    title: "Image Manipulation Tool",
     description:
-      "A responsive E-Commerce website focusing on performance and user-centric design. Reduced bounce rate by 15%.",
-    tech: ["React", "TypeScript"],
-    github: "https://github.com/Sandeep25560/E-Commerce-Website/tree/master",
+      "A modular desktop tool built using Java and Swing UI, supporting 15+ image processing operations across 8+ formats with a clean MVC architecture.",
+    tech: ["Java", "Swing", "JUnit", "OOP"],
+    github:
+      "https://github.com/Nishaant-Soni/PDP_Assignment-4/tree/Assignment6",
   },
   {
-    title: "Employee Management System",
+    title: "Contact Importer",
     description:
-      "Full-stack system with React.js, ASP.NET Core, and MySQL. Handled 1000+ users with seamless CRUD functionality.",
-    tech: ["React", "ASP.NET Core", "MySQL"],
-    github: "https://github.com/Sandeep25560/Employee_Management",
+      "A TypeScript-based contact importing app that parses, validates, and stores contact data in structured format using React and Tailwind.",
+    tech: ["React", "TypeScript", "TailwindCSS"],
+    github: "https://github.com/siddharthr3535/ContactImporter",
   },
   {
-    title: "TravelSync",
+    title: "Canvas-Inspired LMS",
     description:
-      "Performance-optimized travel planner built with Flask and SQLAlchemy. Reduced query times by 30%.",
-    tech: ["Flask", "SQLAlchemy", "Python"],
-    github: "https://github.com/Sandeep25560/travel-planner",
+      "Full-featured Learning Management System (LMS) with course, assignment, quiz, and user management, built with role-based access, auto-grading, and real-time analytics. Deployed to support 1000+ concurrent users.",
+    tech: ["React", "Node.js", "MongoDB", "REST APIs"],
+    github: "https://github.com/siddharthr3535/kambaz-react-web-app",
   },
   {
-    title: "Task Management Application",
+    title: "Flight Strike Analysis Platform",
     description:
-      "Cross-platform task app using React and ASP.NET Core. Achieved 98% test coverage and smooth data syncing.",
-    tech: ["React", "ASP.NET Core", "SQL Server"],
-    github: "https://github.com/Sandeep25560/Task-Management-system",
+      "An analytics platform that leverages R, SQLite, and MySQL to process 50,000+ flight strike records. Generated 20+ interactive visualizations to highlight trends in wildlife collisions by region, severity, and frequency.",
+    tech: ["R", "RStudio", "MySQL", "SQLite", "Data Visualization"],
   },
 ];
 

@@ -10,51 +10,35 @@ interface ExperienceItem {
 
 const experienceData: ExperienceItem[] = [
   {
-    title: "Senior Software Engineer",
-    company: "ValueLabs",
-    duration: "Sep 2023 – Jul 2024",
-    details: [
-        "Led the development of a healthcare application using React Micro-frontend Architecture.",
-
-        "Improved scalability and reduced feature delivery time by 25%.",
-        
-        "Spearheaded the implementation of engineering processes, tools, and systems.",
-        
-        "Enhanced team productivity and scalability through process improvements.",
-        
-        "Mentored junior developers and optimized Git workflows, boosting collaboration and code quality."
-    ],
-  },
-  {
     title: "Software Engineer",
-    company: "ValueLabs",
-    duration: "Apr 2022 – Sep 2023",
+    company: "Alphion Corporation",
+    duration: "Dec 2023 – Jul 2024",
     details: [
-        "Developed reusable React components.",
-
-        "Enhanced code maintainability through component creation.",
-        
-        "Improved application performance by optimizing architecture.",
-        
-        "Contributed to a 20% increase in user engagement.",
-        
-        "Incorporated customer feedback into product features."
+      "Built backend microservices in Java and Spring Boot that helped onboard 1000+ network devices for BSNL and Airtel.",
+      "Hooked up Google Maps into the platform to boost location accuracy across 500+ nodes.",
+      "Locked down web forms with CSRF protection and helped squash 60% of potential security issues.",
+      "Automated network health checks so the team didn’t have to — cut manual checks by 70% and made alerts way faster.",
     ],
   },
   {
-    title: "Software Engineer Intern",
-    company: "ValueLabs",
-    duration: "Jan 2022 – Mar 2022",
+    title: "Member Technical Staff",
+    company: "Zoho Corporation",
+    duration: "Aug 2022 – Jul 2023",
     details: [
-        "Designed and implemented React components.",
-
-        "Reduced task time by 20% through efficient coding.",
-        
-        "Improved code stability using Jest testing.",
-        
-        "Collaborated with senior engineers on client features.",
-        
-        "Improved application performance metrics through collaborative efforts."
+      "Created a custom authentication system in Java — reduced unauthorized logins and made security reviews smoother.",
+      "Worked on a dashboard that tracked cloud usage and activities in real time (built with Java + PostgreSQL).",
+      "Cleaned up 5000+ lines of legacy code to follow strict security standards (FIPS).",
+      "Integrated OAuth 2.0 for SSO logins — made access more secure and seamless for enterprise clients.",
+    ],
+  },
+  {
+    title: "Project Trainee",
+    company: "Zoho Corporation",
+    duration: "Oct 2021 – May 2022",
+    details: [
+      "Tuned up Java REST APIs with Jersey — dropped response times by 25%.",
+      "Improved logging and monitoring so devs could debug stuff faster.",
+      "Used JProfiler to analyze and optimize performance — gave us a 15% boost in service speed.",
     ],
   },
 ];
@@ -91,8 +75,12 @@ const Experience: FC = () => {
               <h3 className="text-xl font-semibold text-blue-500 dark:text-blue-400">
                 {exp.title}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{exp.company}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-500 italic mb-4">{exp.duration}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {exp.company}
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-500 italic mb-4">
+                {exp.duration}
+              </p>
 
               <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                 {exp.details.map((point, pointIdx) => (

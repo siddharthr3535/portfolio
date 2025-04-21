@@ -1,5 +1,54 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
+import { IconType } from "react-icons";
+import { FaJava, FaReact, FaNodeJs, FaPython, FaAws } from "react-icons/fa";
+import {
+  SiSpringboot,
+  SiSpring,
+  SiExpress,
+  SiTypescript,
+  SiJavascript,
+  SiMongodb,
+  SiFlask,
+  SiPostgresql,
+  SiMysql,
+} from "react-icons/si";
+import React from "react";
+
+// Use the proper type annotation for React Icons
+const skillIcons: Record<string, IconType> = {
+  Java: FaJava,
+  "Spring Boot": SiSpringboot,
+  "Spring MVC": SiSpring,
+  "Node.js": FaNodeJs,
+  "Express.js": SiExpress,
+  React: FaReact,
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  MongoDB: SiMongodb,
+  Python: FaPython,
+  Flask: SiFlask,
+  PostgreSQL: SiPostgresql,
+  MySQL: SiMysql,
+  AWS: FaAws,
+};
+
+const skills = [
+  "Java",
+  "Spring Boot",
+  "Spring MVC",
+  "Node.js",
+  "Express.js",
+  "React",
+  "TypeScript",
+  "JavaScript",
+  "MongoDB",
+  "Python",
+  "Flask",
+  "PostgreSQL",
+  "MySQL",
+  "AWS",
+];
 
 const About: FC = () => {
   return (
@@ -25,9 +74,9 @@ const About: FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          I'm a passionate Software Engineer with 2+ years of experience in full-stack development. 
-          I focus on building scalable, high-performing applications using React, TypeScript, Flask, ASP.NET Core 
-          and more. I enjoy solving real-world problems with clean code and elegant UIs.
+          I'm a passionate Software Engineer with 2+ years of experience in
+          full-stack development. I focus on building scalable, high-performing
+          web applications using Java, React and any new exciting frameworks.
         </motion.p>
 
         {/* Skills + Education Grid */}
@@ -73,21 +122,35 @@ const About: FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
             whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.95 }}
           >
             <h3 className="text-xl font-semibold text-blue-500 dark:text-blue-400 mb-4">
               Education
             </h3>
             <ul className="text-gray-700 dark:text-gray-300 space-y-4">
               <li>
-                <strong className="block text-lg">Master of Computer Science</strong>
-                <span className="text-gray-600 dark:text-gray-400">Kent State University</span><br />
-                <span className="text-sm text-gray-500 dark:text-gray-500">GPA: 3.9 • Aug 2024 - Dec 2025</span>
+                <strong className="block text-lg">
+                  Master of Computer Science
+                </strong>
+                <span className="text-gray-600 dark:text-gray-400">
+                  Northeastern University
+                </span>
+                <br />
+                <span className="text-sm text-gray-500 dark:text-gray-500">
+                  GPA: 4.0 • Aug 2024 - May 2026
+                </span>
               </li>
               <li className="pt-2">
-                <strong className="block text-lg">Bachelor of Computer Science</strong>
-                <span className="text-gray-600 dark:text-gray-400">Anna University</span><br />
-                <span className="text-sm text-gray-500 dark:text-gray-500">GPA: 8.65/10 • Jul 2018 - May 2022</span>
+                <strong className="block text-lg">
+                  Bachelor of Computer Science
+                </strong>
+                <span className="text-gray-600 dark:text-gray-400">
+                  Anna University
+                </span>
+                <br />
+                <span className="text-sm text-gray-500 dark:text-gray-500">
+                  GPA: 8.79/10 • Jul 2018 - May 2022
+                </span>
               </li>
             </ul>
           </motion.div>
@@ -100,29 +163,33 @@ const About: FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.3 }}
-          
         >
-          <h3 className="text-xl font-semibold text-blue-500 dark:text-blue-400 mb-4 text-center">
+          <h3 className="text-xl font-semibold text-blue-500 dark:text-blue-400 mb-6 text-center">
             Technical Skills
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {[
-              "React", "TypeScript", "JavaScript", 
-              "Python", "Flask", "ASP.NET Core",
-              "PostgreSQL", "Angular", "MySQL",
-              "Tailwind CSS", "Docker", "AWS"
-            ].map((skill, index) => (
-              <motion.div
-                key={index} 
-                whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}             
-transition={{ delay: 0.1, duration: 0.1 }}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
+            {skills.map((skill, index) => {
+              // Get the icon component for this skill
+              const Icon = skillIcons[skill];
 
-                className="bg-white dark:bg-gray-700 px-4 py-2 rounded-lg text-center shadow-sm"
-              >
-                <span className="text-gray-800 dark:text-gray-200">{skill}</span>
-              </motion.div>
-            ))}
+              return (
+                <motion.div
+                  key={index}
+                  className="flex flex-col items-center text-center space-y-2 text-sm"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center shadow-sm text-blue-600 dark:text-blue-300">
+                    {/* Render the icon component directly as a function */}
+                    {Icon && React.createElement(Icon, { size: 32 })}
+                    {!Icon && <span>❓</span>}
+                  </div>
+                  <span className="text-gray-800 dark:text-gray-200">
+                    {skill}
+                  </span>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

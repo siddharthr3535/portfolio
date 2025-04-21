@@ -228,7 +228,7 @@ const Navbar: FC = () => {
                 <div className="flex flex-col gap-4 w-full">
                   <div className="flex justify-center gap-4">
                     <a
-                      href="https://github.com/Sandeep25560"
+                      href="https://github.com/siddharthr3535"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:text-gray-900 dark:hover:text-white"
@@ -237,7 +237,7 @@ const Navbar: FC = () => {
                       <FiGithub size={20} />
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/enamandala"
+                      href="https://www.linkedin.com/in/siddharth-ramachandran-b37a471b0/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:text-blue-600"
@@ -259,9 +259,9 @@ const Navbar: FC = () => {
                     </a>
 
                     <a
-                      href="https://drive.google.com/uc?export=download&id=1O0wckIS39ke68kRrq_G7ScFDAg0kue47"
+                      href="https://drive.google.com/file/d/1u4id5Jxfl0UfsveVoH97nzqLwxZHVcV6/view?usp=drive_link"
                       className="flex items-center justify-center gap-2 px-4 py-2 border border-blue-500 text-blue-500 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                      download="Sandeep_Enamandala_Resume.pdf"
+                      download="Siddharth_Resume.pdf"
                     >
                       <FiDownload size={18} />
                       <span>Download Resume</span>

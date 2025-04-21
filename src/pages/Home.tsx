@@ -6,12 +6,7 @@ import * as FiIcons from "react-icons/fi";
 import profileImage from "../assets/profile.jpg";
 
 const Home: FC = () => {
-  const typewriterWords: string[] = [
-    "React Developer",
-    "Full-Stack Engineer",
-    "UI Enthusiast",
-    "Tech Explorer",
-  ];
+  const typewriterWords: string[] = ["Full-Stack Engineer", "Tech Explorer"];
   type IconProps = { size?: number; className?: string };
   const FiGithub = FiIcons.FiGithub as React.ComponentType<IconProps>;
   const FiLinkedin = FiIcons.FiLinkedin as React.ComponentType<IconProps>;
@@ -117,7 +112,7 @@ const Home: FC = () => {
           transition={{ delay: 1 }}
         >
           <a
-            href="https://github.com/Sandeep25560"
+            href="https://github.com/siddharthr3535"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors hover:text-gray-900 dark:hover:text-white"
@@ -126,7 +121,7 @@ const Home: FC = () => {
             <FiGithub size={20} />
           </a>
           <a
-            href="https://www.linkedin.com/in/enamandala"
+            href="https://www.linkedin.com/in/siddharth-ramachandran-b37a471b0/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors hover:text-blue-600"
@@ -135,9 +130,9 @@ const Home: FC = () => {
             <FiLinkedin size={20} />
           </a>
           <a
-            href="https://drive.google.com/uc?export=download&id=1O0wckIS39ke68kRrq_G7ScFDAg0kue47"
+            href="https://drive.google.com/file/d/1u4id5Jxfl0UfsveVoH97nzqLwxZHVcV6/view?usp=drive_link"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            download="Sandeep_Enamandala_Resume.pdf"
+            download="Siddharth_Resume.pdf"
           >
             <FiDownload size={18} />
             <span className="text-sm">Resume</span>

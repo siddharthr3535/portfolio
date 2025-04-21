@@ -2,9 +2,9 @@ import { FC, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-const SERVICE_ID = "service_hwu5gu6";
-const TEMPLATE_ID = "template_d63jxyj";
-const PUBLIC_KEY = "afmmWhQaI1sxyJFMu";
+const SERVICE_ID = "service_hvlm9zm";
+const TEMPLATE_ID = "template_ypo2yz5";
+const PUBLIC_KEY = "5iDnNphwabY-NM-QD";
 
 const Contact: FC = () => {
   const [submitted, setSubmitted] = useState(false);
