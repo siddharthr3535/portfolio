@@ -48,7 +48,11 @@ const Navbar: FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (menuOpen && !target.closest(".mobile-menu") && !target.closest(".menu-button")) {
+      if (
+        menuOpen &&
+        !target.closest(".mobile-menu") &&
+        !target.closest(".menu-button")
+      ) {
         setMenuOpen(false);
       }
     };
@@ -64,15 +68,16 @@ const Navbar: FC = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full shadow-md z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-white/90 dark:bg-gray-800/90 backdrop-blur-md" 
-          : "bg-white/80 dark:bg-gray-800/80"
-      }`}>
-
+      <header
+        className={`fixed top-0 left-0 w-full shadow-md z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/90 dark:bg-gray-800/90 backdrop-blur-md"
+            : "bg-white/80 dark:bg-gray-800/80"
+        }`}
+      >
         <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
           {/* Logo with Profile Image */}
-          <motion.div 
+          <motion.div
             className="flex items-center gap-3 cursor-pointer group"
             whileHover={{ scale: 1.03 }}
             onClick={toggleProfileModal}
@@ -82,19 +87,19 @@ const Navbar: FC = () => {
                 className="w-10 h-10 rounded-full overflow-hidden border-2 border-blue-400 group-hover:border-purple-500 transition-colors"
                 whileHover={{ rotate: 5 }}
               >
-                <img 
-                  src={profileImage} 
-                  alt="Sandeep Enamandala" 
+                <img
+                  src={profileImage}
+                  alt="Siddharth Ramachandran"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </motion.div>
               <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white dark:border-gray-900"></div>
             </div>
-            
+
             <div className="flex flex-col">
               <span className="font-bold text-lg bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                Sandeep Enamandala
+                Siddharth Ramachandran
               </span>
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 Full Stack Dev
@@ -125,7 +130,7 @@ const Navbar: FC = () => {
               className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
+              {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
             </button>
           </div>
 
@@ -136,10 +141,10 @@ const Navbar: FC = () => {
               className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
+              {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
             </button>
-            
-            <button 
+
+            <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="menu-button p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle menu"
@@ -199,36 +204,41 @@ const Navbar: FC = () => {
 
               <div className="flex flex-col items-center gap-6">
                 <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-400 dark:border-blue-600">
-                  <img 
-                    src={largeProfileImage} 
-                    alt="Sandeep Enamandala" 
+                  <img
+                    src={largeProfileImage}
+                    alt="Siddharth Ramachandran"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
 
                 <div className="text-center">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Sandeep Enamandala</h2>
-                  <p className="text-blue-500 dark:text-blue-400">Full Stack Developer</p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    Siddharth Ramachandran
+                  </h2>
+                  <p className="text-blue-500 dark:text-blue-400">
+                    Full Stack Developer
+                  </p>
                   <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-md">
-                    Passionate about creating efficient, scalable web applications
+                    Passionate about creating efficient, scalable web
+                    applications
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-4 w-full">
                   <div className="flex justify-center gap-4">
-                    <a 
-                      href="https://github.com/Sandeep25560" 
-                      target="_blank" 
+                    <a
+                      href="https://github.com/Sandeep25560"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:text-gray-900 dark:hover:text-white"
                       aria-label="GitHub"
                     >
                       <FiGithub size={20} />
                     </a>
-                    <a 
-                      href="https://www.linkedin.com/in/enamandala" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/enamandala"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:text-blue-600"
                       aria-label="LinkedIn"
