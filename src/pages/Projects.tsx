@@ -43,6 +43,13 @@ const projects: Project[] = [
       "An analytics platform that leverages R, SQLite, and MySQL to process 50,000+ flight strike records. Generated 20+ interactive visualizations to highlight trends in wildlife collisions by region, severity, and frequency.",
     tech: ["R", "RStudio", "MySQL", "SQLite", "Data Visualization"],
   },
+  {
+    title: "SettleMint",
+    description:
+      "A Splitwise-like expense sharing web app built with FastAPI and TypeScript, allowing users to add splits, track balances, and manage shared expenses in real time.",
+    tech: ["FastAPI", "TypeScript", "React", "TailwindCSS"],
+    github: "https://github.com/siddharthr3535/SettleMint-Web-App",
+  },
 ];
 
 const Projects: FC = () => {
