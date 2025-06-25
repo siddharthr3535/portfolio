@@ -260,11 +260,13 @@ const Navbar: FC = () => {
 
                     <a
                       href="https://docs.google.com/document/d/1TGkupkNB23mxCCVvlo80N7GPB3FJ_wxjufFzv1kjxL4/export?format=pdf"
-                      className="flex items-center justify-center gap-2 px-4 py-2 border border-blue-500 text-blue-500 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                       download="Siddharth_Resume.pdf"
                     >
                       <FiDownload size={18} />
-                      <span>Download Resume</span>
+                      <span className="text-sm">Resume</span>
                     </a>
                   </div>
                 </div>
