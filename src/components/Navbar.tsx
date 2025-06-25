@@ -249,7 +249,7 @@ const Navbar: FC = () => {
 
                   <div className="flex flex-col gap-2">
                     <a
-                      href="https://drive.google.com/file/d/1JK9jYlwHhSRrQDQ7cGCZ72SEtcYBylET/view?usp=drive_link"
+                      href="https://docs.google.com/document/d/1TGkupkNB23mxCCVvlo80N7GPB3FJ_wxjufFzv1kjxL4/view"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
@@ -259,7 +259,7 @@ const Navbar: FC = () => {
                     </a>
 
                     <a
-                      href="https://drive.google.com/file/d/1JK9jYlwHhSRrQDQ7cGCZ72SEtcYBylET/view?usp=drive_link"
+                      href="https://docs.google.com/document/d/1TGkupkNB23mxCCVvlo80N7GPB3FJ_wxjufFzv1kjxL4/export?format=pdf"
                       className="flex items-center justify-center gap-2 px-4 py-2 border border-blue-500 text-blue-500 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
                       download="Siddharth_Resume.pdf"
                     >
