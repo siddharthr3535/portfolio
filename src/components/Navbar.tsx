@@ -33,7 +33,7 @@ const Navbar: FC = () => {
   const RESUME_VIEW_LINK =
     "https://docs.google.com/document/d/1xR_oM8MazHIotOWPhdlzQjK4Jdon4SgKpU-Uxhg-DiI/edit?usp=sharing";
   // Host the PDF locally for reliable downloads
-  const RESUME_DOWNLOAD_LINK = "/Siddharth_Ramachandran_Resume.pdf";
+  const RESUME_DOWNLOAD_LINK = "/01 Siddharth Ramachandran Resume.pdf";
 
   const links: NavLink[] = [
     { name: "Home", target: "home" },
