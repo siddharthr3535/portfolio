@@ -29,6 +29,12 @@ const Navbar: FC = () => {
   const [profileModalOpen, setProfileModalOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  // Updated resume links with new document ID
+  const RESUME_VIEW_LINK =
+    "https://docs.google.com/document/d/1xR_oM8MazHIotOWPhdlzQjK4Jdon4SgKpU-Uxhg-DiI/edit?usp=sharing";
+  // Host the PDF locally for reliable downloads
+  const RESUME_DOWNLOAD_LINK = "/Siddharth_Ramachandran_Resume.pdf";
+
   const links: NavLink[] = [
     { name: "Home", target: "home" },
     { name: "About", target: "about" },
@@ -249,7 +255,7 @@ const Navbar: FC = () => {
 
                   <div className="flex flex-col gap-2">
                     <a
-                      href="https://docs.google.com/document/d/1TGkupkNB23mxCCVvlo80N7GPB3FJ_wxjufFzv1kjxL4/view"
+                      href={RESUME_VIEW_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
@@ -259,14 +265,12 @@ const Navbar: FC = () => {
                     </a>
 
                     <a
-                      href="https://docs.google.com/document/d/1TGkupkNB23mxCCVvlo80N7GPB3FJ_wxjufFzv1kjxL4/export?format=pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                      download="Siddharth_Resume.pdf"
+                      href={RESUME_DOWNLOAD_LINK}
+                      download="Siddharth_Ramachandran_Resume.pdf"
+                      className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                     >
                       <FiDownload size={18} />
-                      <span className="text-sm">Resume</span>
+                      <span className="text-sm">Download Resume</span>
                     </a>
                   </div>
                 </div>

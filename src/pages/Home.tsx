@@ -12,6 +12,10 @@ const Home: FC = () => {
   const FiLinkedin = FiIcons.FiLinkedin as React.ComponentType<IconProps>;
   const FiDownload = FiIcons.FiDownload as React.ComponentType<IconProps>;
 
+  // Updated resume link - using the new document's export endpoint
+  const RESUME_DOWNLOAD_LINK =
+    "https://docs.google.com/document/d/1xR_oM8MazHIotOWPhdlzQjK4Jdon4SgKpU-Uxhg-DiI/export?format=pdf";
+
   return (
     <section
       id="home"
@@ -130,11 +134,11 @@ const Home: FC = () => {
             <FiLinkedin size={20} />
           </a>
           <a
-            href="https://drive.google.com/uc?export=download&id=1JK9jYlwHhSRrQDQ7cGCZ72SEtcYBylET"
+            href={RESUME_DOWNLOAD_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            download="Siddharth_Resume.pdf"
+            download="Siddharth_Ramachandran_Resume.pdf"
           >
             <FiDownload size={18} />
             <span className="text-sm">Resume</span>
