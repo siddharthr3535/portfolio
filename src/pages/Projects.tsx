@@ -55,8 +55,8 @@ const projects: Project[] = [
     description:
       "Real-time full-stack app that transforms speech into dynamic generative art. Orchestrates Deepgram WebSocket transcription, OpenAI sentiment analysis, and p5.js Perlin noise visualization. Built with React, FastAPI, showcasing async API orchestration and creative data-driven design for Memory Machines technical assessment.",
     tech: ["React", "FastAPI", "Deepgram API", "OpenAI API", "p5.js"],
-    github: "https://github.com/siddharthr3535/sentiment-aura",
-    demo: "spiffy-phoenix-80b648.netlify.app",
+    github: "https://github.com/siddharthr3535/sentiment_aura",
+    demo: "https://spiffy-phoenix-80b648.netlify.app",
   },
 ];
 
