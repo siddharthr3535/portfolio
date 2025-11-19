@@ -50,6 +50,14 @@ const projects: Project[] = [
     tech: ["FastAPI", "TypeScript", "React", "TailwindCSS"],
     github: "https://github.com/siddharthr3535/SettleMint-Web-App",
   },
+  {
+    title: "Sentiment Aura",
+    description:
+      "Real-time full-stack app that transforms speech into dynamic generative art. Orchestrates Deepgram WebSocket transcription, OpenAI sentiment analysis, and p5.js Perlin noise visualization. Built with React, FastAPI, showcasing async API orchestration and creative data-driven design for Memory Machines technical assessment.",
+    tech: ["React", "FastAPI", "Deepgram API", "OpenAI API", "p5.js"],
+    github: "https://github.com/siddharthr3535/sentiment-aura",
+    demo: "spiffy-phoenix-80b648.netlify.app",
+  },
 ];
 
 const Projects: FC = () => {
