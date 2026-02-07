@@ -1,12 +1,12 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { FC, useEffect, useRef, useState } from "react";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-scroll";
 import {
   default as largeProfileImage,
   default as profileImage,
 } from "../assets/profile.jpg";
-import { RESUME_PDF } from "../constants/resume";
+import { RESUME_PDF, RESUME_PDF_FILENAME } from "../constants/resume";
 import { useTheme } from "../hooks/useTheme";
 
 // Typed icons
@@ -31,6 +31,8 @@ const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const shouldReduceMotion = useReducedMotion();
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const links: NavLink[] = [
     { name: "Home", target: "home" },
@@ -69,6 +71,47 @@ const Navbar: FC = () => {
     if (menuOpen) setMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (!profileModalOpen) return;
+
+    const focusable = modalRef.current?.querySelectorAll<HTMLElement>(
+      'a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable && focusable.length > 0) {
+      focusable[0].focus();
+    } else {
+      modalRef.current?.focus();
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setProfileModalOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = modalRef.current?.querySelectorAll<HTMLElement>(
+        'a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable || focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [profileModalOpen]);
+
   return (
     <>
       <header
@@ -80,15 +123,17 @@ const Navbar: FC = () => {
       >
         <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
           {/* Logo with Profile Image */}
-          <motion.div
-            className="flex items-center gap-3 cursor-pointer group"
-            whileHover={{ scale: 1.03 }}
+          <motion.button
+            type="button"
+            className="flex items-center gap-3 cursor-pointer group text-left"
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
             onClick={toggleProfileModal}
+            aria-label="Open profile details"
           >
             <div className="relative">
               <motion.div
                 className="w-10 h-10 rounded-full overflow-hidden border-2 border-blue-400 group-hover:border-purple-500 transition-colors"
-                whileHover={{ rotate: 5 }}
+                whileHover={shouldReduceMotion ? undefined : { rotate: 5 }}
               >
                 <img
                   src={profileImage}
@@ -104,11 +149,11 @@ const Navbar: FC = () => {
               <span className="font-bold text-lg bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                 Siddharth Ramachandran
               </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="text-xs text-gray-500 dark:text-gray-300">
                 Full Stack Dev
               </span>
             </div>
-          </motion.div>
+          </motion.button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -119,14 +164,24 @@ const Navbar: FC = () => {
                 smooth={true}
                 duration={500}
                 offset={-80}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium text-sm uppercase tracking-wider cursor-pointer relative group"
-                activeClass="text-blue-500 dark:text-blue-400"
+                className="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-300 transition-colors font-medium text-sm uppercase tracking-wider cursor-pointer relative group"
+                activeClass="is-active"
                 spy={true}
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 dark:bg-blue-400 transition-all group-hover:w-full"></span>
               </Link>
             ))}
+
+            <a
+              href={RESUME_PDF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-blue-500 text-white text-xs font-semibold tracking-wide uppercase hover:bg-blue-600 transition-colors"
+            >
+              <FiFileText size={16} />
+              Resume
+            </a>
 
             <button
               onClick={toggleTheme}
@@ -168,13 +223,23 @@ const Navbar: FC = () => {
                     duration={500}
                     offset={-80}
                     onClick={() => setMenuOpen(false)}
-                    className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
-                    activeClass="text-blue-500 dark:text-blue-400 bg-gray-100 dark:bg-gray-700"
+                    className="text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-300 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                    activeClass="is-active bg-gray-100 dark:bg-gray-700"
                     spy={true}
                   >
                     {link.name}
                   </Link>
                 ))}
+
+                <a
+                  href={RESUME_PDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors"
+                >
+                  <FiFileText size={18} />
+                  View Resume
+                </a>
               </div>
             </div>
           )}
@@ -185,22 +250,33 @@ const Navbar: FC = () => {
       <AnimatePresence>
         {profileModalOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
             className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm"
             onClick={() => setProfileModalOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={
+                shouldReduceMotion ? false : { scale: 0.9, opacity: 0 }
+              }
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={
+                shouldReduceMotion ? { scale: 1, opacity: 1 } : { scale: 0.9, opacity: 0 }
+              }
               className="relative bg-white dark:bg-gray-900 rounded-xl max-w-md w-full mx-4 p-6 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Profile details"
+              ref={modalRef}
+              tabIndex={-1}
             >
               <button
+                type="button"
                 onClick={() => setProfileModalOpen(false)}
                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+                aria-label="Close profile modal"
               >
                 <FiXCircle size={24} />
               </button>
@@ -263,7 +339,7 @@ const Navbar: FC = () => {
 
                     <a
                       href={RESUME_PDF}
-                      download="Siddharth_Ramachandran_Resume.pdf"
+                      download={RESUME_PDF_FILENAME}
                       className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                     >
                       <FiDownload size={18} />

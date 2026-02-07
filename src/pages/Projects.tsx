@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import * as FaIcons from "react-icons/fa";
 import React from "react";
 
@@ -61,6 +61,8 @@ const projects: Project[] = [
 ];
 
 const Projects: FC = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="projects"
@@ -69,9 +71,9 @@ const Projects: FC = () => {
       <div className="max-w-6xl mx-auto w-full">
         <motion.h2
           className="text-3xl sm:text-4xl font-bold mb-10 text-center bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: -30 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
         >
           Projects
         </motion.h2>
@@ -80,18 +82,21 @@ const Projects: FC = () => {
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
-              className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-md transition-transform cursor-default hover:shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
+              className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-md transition-transform cursor-default hover:shadow-lg focus-within:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900"
+              tabIndex={0}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.3 }}
+              transition={
+                shouldReduceMotion ? { duration: 0 } : { delay: 0.1, duration: 0.3 }
+              }
             >
               <h3 className="text-lg font-semibold text-blue-500 dark:text-blue-400 mb-2">
                 {project.title}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                 {project.description}
               </p>
 

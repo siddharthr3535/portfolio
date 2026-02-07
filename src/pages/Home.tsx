@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import * as FiIcons from "react-icons/fi";
 import profileImage from "../assets/profile.jpg";
-import { RESUME_PDF } from "../constants/resume";
+import { RESUME_PDF, RESUME_PDF_FILENAME } from "../constants/resume";
 
 const Home: FC = () => {
   const typewriterWords: string[] = ["Full-Stack Engineer", "Tech Explorer"];
@@ -12,6 +12,7 @@ const Home: FC = () => {
   const FiGithub = FiIcons.FiGithub as React.ComponentType<IconProps>;
   const FiLinkedin = FiIcons.FiLinkedin as React.ComponentType<IconProps>;
   const FiDownload = FiIcons.FiDownload as React.ComponentType<IconProps>;
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
@@ -22,9 +23,11 @@ const Home: FC = () => {
       <div className="text-center max-w-2xl mx-auto">
         <motion.div
           className="hidden md:block mx-auto mb-8 w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-lg mt-14"
-          initial={{ scale: 0 }}
+          initial={shouldReduceMotion ? false : { scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring" }}
+          transition={
+            shouldReduceMotion ? { duration: 0 } : { delay: 0.2, type: "spring" }
+          }
         >
           <img
             src={profileImage}
@@ -36,9 +39,9 @@ const Home: FC = () => {
 
         <motion.h1
           className="text-4xl sm:text-6xl font-bold mb-4 font-heading"
-          initial={{ y: -40, opacity: 0 }}
+          initial={shouldReduceMotion ? false : { y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
         >
           Hi, I'm{" "}
           <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
@@ -47,10 +50,12 @@ const Home: FC = () => {
         </motion.h1>
 
         <motion.h2
-          className="text-xl sm:text-2xl mb-6 text-gray-600 dark:text-gray-300"
-          initial={{ y: 20, opacity: 0 }}
+          className="text-xl sm:text-2xl mb-6 text-gray-600 dark:text-gray-200"
+          initial={shouldReduceMotion ? false : { y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={
+            shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.5 }
+          }
         >
           A Passionate{" "}
           <span className="text-blue-500 dark:text-blue-400">
@@ -67,10 +72,12 @@ const Home: FC = () => {
         </motion.h2>
 
         <motion.p
-          className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-8 max-w-lg mx-auto"
-          initial={{ opacity: 0 }}
+          className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-8 max-w-lg mx-auto"
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          transition={
+            shouldReduceMotion ? { duration: 0 } : { delay: 0.6, duration: 0.5 }
+          }
         >
           Software Engineer with 2+ years of experience in full-stack
           development. Proven track record of shipping high-quality products
@@ -82,9 +89,11 @@ const Home: FC = () => {
 
         <motion.div
           className="flex flex-wrap justify-center gap-4 mb-8"
-          initial={{ scale: 0 }}
+          initial={shouldReduceMotion ? false : { scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.4 }}
+          transition={
+            shouldReduceMotion ? { duration: 0 } : { delay: 0.8, duration: 0.4 }
+          }
         >
           <ScrollLink
             to="projects"
@@ -108,9 +117,9 @@ const Home: FC = () => {
         {/* Social Links */}
         <motion.div
           className="flex justify-center gap-4 mt-6"
-          initial={{ opacity: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { delay: 1 }}
         >
           <a
             href="https://github.com/siddharthr3535"
@@ -135,7 +144,7 @@ const Home: FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            download="Siddharth_Ramachandran_Resume.pdf"
+            download={RESUME_PDF_FILENAME}
           >
             <FiDownload size={18} />
             <span className="text-sm">Resume</span>
