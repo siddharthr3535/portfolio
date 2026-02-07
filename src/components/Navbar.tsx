@@ -1,10 +1,13 @@
-import { FC, useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { FC, useEffect, useState } from "react";
 import * as FiIcons from "react-icons/fi";
-import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
+import {
+  default as largeProfileImage,
+  default as profileImage,
+} from "../assets/profile.jpg";
+import { RESUME_PDF } from "../constants/resume";
 import { useTheme } from "../hooks/useTheme";
-import profileImage from "../assets/profile.jpg";
-import largeProfileImage from "../assets/profile.jpg";
 
 // Typed icons
 type IconProps = { size?: number; className?: string };
@@ -28,12 +31,6 @@ const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-
-  // Updated resume links with new document ID
-  const RESUME_VIEW_LINK =
-    "https://docs.google.com/document/d/1xR_oM8MazHIotOWPhdlzQjK4Jdon4SgKpU-Uxhg-DiI/edit?usp=sharing";
-  // Host the PDF locally for reliable downloads
-  const RESUME_DOWNLOAD_LINK = "/01 Siddharth Ramachandran Resume.pdf";
 
   const links: NavLink[] = [
     { name: "Home", target: "home" },
@@ -243,7 +240,7 @@ const Navbar: FC = () => {
                       <FiGithub size={20} />
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/siddharth-ramachandran-b37a471b0/"
+                      href="https://www.linkedin.com/in/siddharthr"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:text-blue-600"
@@ -255,7 +252,7 @@ const Navbar: FC = () => {
 
                   <div className="flex flex-col gap-2">
                     <a
-                      href={RESUME_VIEW_LINK}
+                      href={RESUME_PDF}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
@@ -265,7 +262,7 @@ const Navbar: FC = () => {
                     </a>
 
                     <a
-                      href={RESUME_DOWNLOAD_LINK}
+                      href={RESUME_PDF}
                       download="Siddharth_Ramachandran_Resume.pdf"
                       className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                     >

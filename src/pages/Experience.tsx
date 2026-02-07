@@ -1,7 +1,8 @@
-import React, { FC } from "react";
 import { motion } from "framer-motion";
-import ZohoLogo from "../assets/Zoho.png";
+import { FC } from "react";
 import AlphionLogo from "../assets/Alphion.png";
+import KelnahLogo from "../assets/KelnahLogo.png";
+import ZohoLogo from "../assets/Zoho.png";
 
 interface ExperienceItem {
   title: string;
@@ -12,6 +13,18 @@ interface ExperienceItem {
 }
 
 const experienceData: ExperienceItem[] = [
+  {
+    title: "Full Stack Engineer Coop",
+    company: "Kelnah Inc",
+    duration: "Jan 2025 – May 2025",
+    logo: KelnahLogo,
+    details: [
+      "Built authentication flows and tribute moderation systems using React, Node.js, and Supabase.",
+      "Developed blurred service views for unauthenticated users to improve platform engagement.",
+      "Implemented auto-redeeming invite system and memorial page functionality.",
+      "Enhanced platform security and user experience for bereavement services.",
+    ],
+  },
   {
     title: "Software Engineer",
     company: "Alphion Corporation",
